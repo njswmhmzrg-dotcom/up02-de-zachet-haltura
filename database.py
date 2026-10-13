@@ -3,9 +3,16 @@ import sqlite3
 from config import DB_PATH
 
 
+import os
+import sqlite3
+
+import os
+import sqlite3
+
 def get_connection():
-    """Соединение с БД."""
-    return sqlite3.connect(DB_PATH)
+    base = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base, "databases", "db_variant_1.db")
+    return sqlite3.connect(db_path)
 
 
 def get_all_products():
